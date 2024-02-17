@@ -3,13 +3,16 @@ import { useState, useEffect } from 'react'
 import {fetchProductData} from '../api/products'
 
 import Header from '../components/Header'
+import Toolbar from '../components/Toolbar'
 import Pagination from '../components/Pagination'
-import Product from '../components/Product'
+import ProductCard from '../components/ProductCard'
+import Footer from '../components/Footer'
 
 function Products() {
     const [products, setProducts] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
     const [pageNumber, setPageNumber] = useState(1)
+    const [lastPage, setLastPage] = useState(1)
     const [cartTotal, setCartTotal] = useState(0)
 
     useEffect(() => {
@@ -17,6 +20,7 @@ function Products() {
             async () => {
                 const result = await fetchProductData(pageNumber, searchTerm)
                 setProducts(result.results)
+                setLastPage(result.pagination.totalPages)
             }
         )()
     }, [pageNumber] )
@@ -24,6 +28,10 @@ function Products() {
     return (
         <div>
             <Header 
+                setPageNumber={setPageNumber}
+                setSearchTerm={setSearchTerm}/>
+
+            <Toolbar
                 setProducts={setProducts}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
@@ -33,12 +41,17 @@ function Products() {
                 pageNumber={pageNumber}
                 setPageNumber={setPageNumber}/>
 
-            <Product 
-                products={products}/>
+            <ProductCard
+                products={products}
+                cartTotal={cartTotal}
+                setCartTotal={setCartTotal}/>
 
             <Pagination 
                 pageNumber={pageNumber}
-                setPageNumber={setPageNumber}/>
+                setPageNumber={setPageNumber}
+                lastPage={lastPage}/>
+
+            <Footer />
         </div>
     )
 }

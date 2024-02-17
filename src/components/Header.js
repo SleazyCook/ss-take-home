@@ -1,31 +1,31 @@
-import {fetchProductData} from '../api/products'
+import { Link } from 'react-router-dom'
 
-function Header({setProducts, searchTerm, setSearchTerm}) {
+function Header({setPageNumber, setSearchTerm}) {
 
-    function handleChange(event) {
-        setSearchTerm(event.target.value)
-    }
-
-    async function handleSubmit(event) {
-        event.preventDefault()
-        const result = await fetchProductData(1, searchTerm)
-        setProducts(result.results)
+    function handleReset() {
+        setPageNumber(1)
+        setSearchTerm('')
     }
 
     return(
-        <div>
-            Header.
+        <div onClick={handleReset} className='header'>
+            {/* Left */}
+            <div className='header__main'>
+                {/* Logo */}
+                <img src='https://i.imgur.com/ajDgUOr.png' alt='logo' />
 
-            <form onSubmit={handleSubmit}>
-                <input type='text' onChange={handleChange} />
-                <button>Search</button>
-            </form>
+                {/* Brand Name */}
+                <span className='header__name'>otterly unique</span>
+            </div>
+            {/* Right */}
+            <div className='header__links'>
+                <a 
+                    className='header__links--about' 
+                    href='https://github.com/SleazyCook/'
+                    target='_blank'>
+                        about</a>
+            </div>
 
-
-
-
-            Cart Icon & Total.
-            (Fixed, but simpler on scroll?)
         </div>
     )
 }

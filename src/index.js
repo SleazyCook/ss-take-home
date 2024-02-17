@@ -2,10 +2,10 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App'
-
 import ErrorPage from './components/ErrorPage'
 
-import Home from './containers/Home'
+import Landing from './containers/Landing'
+import Products from './containers/Products'
 
 const appElement = document.getElementById('app')
 const root = createRoot(appElement)
@@ -18,7 +18,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home />
+                element: <Landing />
+            },
+            {
+                path: 'shop',
+                element: <Products />
             }
         ]
     }
