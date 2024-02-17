@@ -1,7 +1,9 @@
+import Products from '../containers/Products'
+
 function Home() {
     return (
         <div>
-            Homepage.
+            <Products />
         </div>
     )
 }
