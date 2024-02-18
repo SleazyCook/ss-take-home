@@ -5,7 +5,7 @@ import App from './App'
 import ErrorPage from './components/ErrorPage'
 
 import Landing from './containers/Landing'
-import Products from './containers/Products'
+import Shop from './containers/Shop'
 
 const appElement = document.getElementById('app')
 const root = createRoot(appElement)
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'shop',
-                element: <Products />
+                element: <Shop />
             }
         ]
     }

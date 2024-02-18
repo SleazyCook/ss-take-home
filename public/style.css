@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins&family=Protest+Riot&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
-
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Variables */
@@ -28,7 +24,6 @@
     /* Fonts */
     --font-title: 'Montserrat', sans-serif;
     --font-display: 'Protest Riot', serif;
-    --font-sans: 'Lato';
     --font-author: 'Berkshire Swash', cursive;
 }
 
@@ -80,7 +75,6 @@
 body {
     background-color: var(--light-bg-color);
     color: var(--text-dark);
-    font-family: var(--sans);
 }
 
 /* Landing Page */
@@ -481,6 +475,64 @@ body {
 .product__button:active {
     transform: translateY(0px);
     box-shadow: 0 .1rem .8rem var(--text-grey);
+}
+
+/* No Results Found */
+.no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem 0;
+}
+
+/* .no-results__text {
+    background-color: var(--bg-white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.no-result__text:before {
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 20px;
+  width: 0;
+  border-top: 20px solid black;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+*/
+
+.no-results__text {
+	position: relative;
+    font-size: 1.25rem;
+	background: var(--bg-white);
+    padding: 1.5rem;
+	border-radius: 1rem;
+}
+
+.no-results__text:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 60%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: var(--bg-white);
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -10px;
+	margin-bottom: -20px;
+}
+
+.no-results__img {
+    margin-top: 1rem;
+    height: 25rem;
 }
 
 /* Footer */
