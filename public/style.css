@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins&family=Protest+Riot&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* Variables */
 :root {
     /* Backgrounds */
@@ -14,10 +17,13 @@
     --color-grey--dark: darkgray;
     /* Text Color */
     --text-light: #FFFFFF;
+    --text-light-alt: #E1D9D1;
     --text-dark: #0C1B33; 
     --text-highlight: #FF0000;
     /* Fonts */
     --font-title: 'Yeseva One', serif;
+
+    --font-title: 'Montserrat', sans-serif;
     --font-display: 'Protest Riot', serif;
     --font-sans: 'Lato';
     --font-author: 'Berkshire Swash', cursive;
@@ -96,6 +102,9 @@ body {
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: var(--text-dark);
 }
 
 .landing span {
@@ -105,10 +114,13 @@ body {
 
 .landing__primary {
     font-size: 5rem;
+    color: var(--text-light);
     animation: slideright 1.25s ease-out;
 }
 
 .landing__secondary {
+    font-size: 1.5rem;
+    color: var(--text-light-alt);
     animation: slideleft 1.5s ease-out;
 }
 
@@ -153,13 +165,17 @@ body {
     height: 5rem;
     margin: 1rem;
     margin-left: 2rem;
+    filter: brightness(0%);
 }
 
 .header__name {
     font-size: 3rem;
     font-weight: bold;
     font-family: var(--font-title);
-    text-shadow: 1px 1px 2px var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: var(--text-dark);
+    text-shadow: 1px 1px 2px var(--text-light);
 }
 
 .header__links,
@@ -196,7 +212,6 @@ body {
     border-radius: 100px;
     margin: 0 .5rem;
     cursor: pointer;
-
     transition: all .3s;
     position: relative;
     overflow: hidden;
@@ -243,7 +258,7 @@ body {
     font-family: var(--font-title);
     font-weight: 100;
     background-color: var(--secondary-bg-color);
-    color: white;
+    color: var(--text-light);
     border: none;
     padding: .7rem 2rem;
     border-radius: 100px;
@@ -322,7 +337,7 @@ body {
     text-align: center;
 }
 
-/* Pagination */
+/* Pagination Component */
 .pagination {
     color: var(--text-dark);
     margin: 1.5rem auto 0 auto;
@@ -361,7 +376,7 @@ body {
 }
 
 
-/* Product Component */
+/* Product Card */
 .products__container {
     padding: 1rem;
     display: flex;
@@ -398,8 +413,10 @@ body {
 }
 
 .product__name {
+    margin-top: .5rem;
+    font-size: 1.1rem;
     font-weight: 900;
-    height: 2.75rem;
+    height: 2.6rem;
     text-align: center;
 }
 
