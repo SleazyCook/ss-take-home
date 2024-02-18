@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins&family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 
-/* Color Variables */
+/* Variables */
 :root {
     /* Backgrounds */
     --main-bg-color: lightblue;
-    --dark-bg-color: #0C1B33;
     --secondary-bg-color: #0077B6;
-    --contrast-color: ##A1674A;
+    --light-bg-color: #DDECF1;
+    --dark-bg-color: #0C1B33;
     /* Text Color */
     --text-light: #FFFFFF;
     --text-dark: #0C1B33; 
@@ -17,9 +18,11 @@
     --font-title: 'Yeseva One', serif;
     --font-display: 'Protest Riot', serif;
     --font-sans: 'Lato';
+    --font-author: 'Berkshire Swash', cursive;
 }
 
 body {
+    background-color: var(--light-bg-color);
     color: var(--text-dark);
     font-family: var(--sans);
 }
@@ -62,10 +65,6 @@ body {
 .header img {
     height: 5rem;
     margin: 1rem;
-    /* Silhouette effect */
-    -webkit-filter: grayscale(100%) brightness(0);
-    filter: grayscale(100%) brightness(0);
-    cursor: pointer;
     margin-left: 2rem;
 }
 
@@ -73,6 +72,7 @@ body {
     font-size: 3rem;
     font-weight: bold;
     font-family: var(--font-title);
+    text-shadow: 1px 1px 2px var(--text-dark);
 }
 
 .header__links,
@@ -259,7 +259,7 @@ body {
 }
 
 .product:hover {
-    box-shadow: 0 .2rem 1rem var(--main-bg-color);
+    box-shadow: 0 .2rem 1rem var(--dark-bg-color);
 }
 
 .product__image {
@@ -336,4 +336,47 @@ body {
     margin-top: 1rem;
     background-color: var(--main-bg-color);
     color: var(--text-light);
+    text-align: center;
+    padding: 1rem 8rem;
+}
+
+.author {
+    font-family: 'Times New Roman';
+    text-decoration: none;
+    color: var(--text-light);
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.25rem;
+    transition: all .2s;
+}
+
+.author:hover {
+    color: var(--text-dark);
+}
+
+.author span {
+    font-family: var(--font-author);
+}
+
+.footer__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__link img {
+    height: 45px;
+    width: 45px;
+    margin: .5rem;
+}
+
+.footer__details a {
+    text-decoration: none;
+    color: var(--text-light);
+    text-transform: uppercase;
+    transition: all .2s;
+}
+
+.footer__details a:hover {
+    color: var(--text-dark);
 }

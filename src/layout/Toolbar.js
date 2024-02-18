@@ -56,7 +56,7 @@ function Toolbar({setProducts, searchTerm, setSearchTerm, cartTotal}) {
 
                 {/* Searchbar */}
                 <form className='search' onSubmit={handleSubmit}>
-                    <input name='search' className='search__input' type='text' onChange={handleChange} placeholder='find your fit' />
+                    <input name='search' className='search__input' type='text' onChange={handleChange} placeholder='find your fit &hearts;' />
                     <button className='search__button'>
                         <BiSearch className='search__icon'/>
                     </button>

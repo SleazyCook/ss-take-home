@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 
 import {fetchProductData} from '../api/products'
 
-import Header from '../components/Header'
-import Toolbar from '../components/Toolbar'
+import Header from '../layout/Header'
+import Toolbar from '../layout/Toolbar'
 import Pagination from '../components/Pagination'
 import ProductCard from '../components/ProductCard'
-import Footer from '../components/Footer'
+import Footer from '../layout/Footer'
 
 function Products() {
     const [products, setProducts] = useState([])
