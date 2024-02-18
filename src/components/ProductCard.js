@@ -3,8 +3,6 @@ import { FaCartShopping } from 'react-icons/fa6';
 function ProductCard({products, cartTotal, setCartTotal}) {
 
     function handleCart() {
-        console.log('added to cart')
-        console.log(cartTotal)
         setCartTotal(cartTotal+1)
     }
 
@@ -13,9 +11,7 @@ function ProductCard({products, cartTotal, setCartTotal}) {
 
             {products.map((product)=>{
                 return (
-                    <div 
-                        key={product.uid}
-                        className='product'>
+                    <div key={product.uid} className='product'>
                         
                         {/* Image */}
                         <img 
@@ -25,6 +21,9 @@ function ProductCard({products, cartTotal, setCartTotal}) {
                         {/* Name */}
                         <div className='product__name'>
                             {product.name}</div>
+
+                        {/* Divider Line */}
+                        <span className='product__divider'></span>
 
                         {/* On Sale Condition */}
                         {Number(product.price) < Number(product.msrp) ? 

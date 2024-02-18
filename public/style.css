@@ -2,15 +2,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins&family=Protest+Riot&display=swap');
 
+/* Color Variables */
+:root {
+    /* Backgrounds */
+    --main-bg-color: lightblue;
+    --dark-bg-color: #0C1B33;
+    --secondary-bg-color: #0077B6;
+    --contrast-color: ##A1674A;
+    /* Text Color */
+    --text-light: #FFFFFF;
+    --text-dark: #0C1B33; 
+    --text-highlight: #FF0000;
+    /* Fonts */
+    --font-title: 'Yeseva One', serif;
+    --font-display: 'Protest Riot', serif;
+    --font-sans: 'Lato';
+}
+
 body {
-    /* background-color: #1e1e1e; */
-    color: black;
-    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+    font-family: var(--sans);
 }
 
 /* Landing Page */
 .landing {
-    color: lightblue;
+    color: var(--main-bg-color)
 }
 
 .landing span {
@@ -22,14 +38,10 @@ body {
     font-size: 4rem;
 }
 
-/* Header & Toolbar */
-.header, 
-.toolbar {
-    background-color: lightblue;
-    color: white;
-}
-
+/* Header */
 .header {
+    background-color: var(--main-bg-color);
+    color: var(--text-light);
     width: 100%;
     height: 8rem;
     display: flex;
@@ -60,26 +72,126 @@ body {
 .header__name {
     font-size: 3rem;
     font-weight: bold;
-    font-family: 'Yeseva One', serif;
+    font-family: var(--font-title);
 }
 
 .header__links,
 .header__links--about {
-    color: white; 
+    color: var(--text-light); 
     text-decoration: none;
     font-size: 1.5rem;  
     margin-right: 1rem; 
+    transition: all .2s;
 }
 
+.header__links:hover,
+.header__links--about:hover {
+    color: var(--text-dark);
+}
+
+/* Toolbar */
 .toolbar {
+    background-color: var(--main-bg-color);
     position: sticky;
     top: 0px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid var(--text-light);
+    border-bottom: 2px solid var(--text-light); 
+}
 
+.toolbar__button {
+    background-color: white; 
+    color: var(--text-dark);
+    padding: .7rem 2rem;
+    border-radius: 100px;
+    margin: 0 .5rem;
+    cursor: pointer;
+
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.toolbar__button:hover {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-light);
+}
+
+.toolbar__button:before {
+    content: '';
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateX(-100%) rotate(45deg);
+    transition: all .3s;
+}
+
+.toolbar__button:hover:before {
+    transform: translateX(100%) rotate(45deg);
+}
+
+
+.toolbar__divider {
+    display: inline-block;
+    height: 35px;
+    width: 2px;
+    background-color: var(--text-light);
+    margin: 0 1rem;
+    margin-right: 1.5rem;
+}
+
+.search{
     display: flex;
     align-items: center;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white; 
+    justify-content: center;
+}
+
+.search__input {
+    font-family: var(--font-title);
+    font-weight: 100;
+    background-color: var(--secondary-bg-color);
+    color: white;
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all .2s;
+    margin-right: -3.25rem;
+}
+
+.search__input::placeholder {
+    color: var(--text-light);
+    opacity: 1; /* Firefox */
+}
+  
+.search__input::-ms-input-placeholder { /* Edge 12 -18 */
+    color: var(--text-light);
+}
+
+.search__input:focus {
+    outline: none;
+    width: 100%;
+    backgroud-color: grey;
+}
+
+.search__button {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    display: flex;
+    transform: translateX(-.5rem);
+}
+
+.search__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: white;
 }
 
 .cart {
@@ -89,12 +201,23 @@ body {
     align-items: center;
     height: 4rem;
     width: 4rem;
+    margin-left: 1rem;
 }
 
 .cart svg {
-    fill: white;
+    fill: var(--text-light);
     font-size: 2.5rem;
     vertical-align: middle;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.cart svg:hover {
+    font-size: 3rem;
+}
+
+.cart svg:hover .cart span {
+    background-color: red;
 }
 
 .cart span {
@@ -104,7 +227,8 @@ body {
     height: 1rem;
     width: 1rem;
     padding: .3rem;
-    background-color: red;
+    background-color: var(--secondary-bg-color);
+    color: var(--text-light);
     border-radius: 50%;
     text-align: center;
 }
@@ -135,7 +259,7 @@ body {
 }
 
 .product:hover {
-    box-shadow: 0 .2rem 1rem lightblue;
+    box-shadow: 0 .2rem 1rem var(--main-bg-color);
 }
 
 .product__image {
@@ -147,6 +271,14 @@ body {
     font-weight: 900;
 }
 
+.product__divider {
+    display: block;
+    height: 2px;
+    width: 10rem;
+    background-color: black;
+    margin: .2rem auto;
+}
+
 .product__price,
 .product__msrp,
 .product__msrp-only {
@@ -156,12 +288,12 @@ body {
 
 .product__price,
 .product__msrp--only {
-    font-family: 'Protest Riot', sans-serif;
+    font-family: var(--font-display);
     font-weight: 900;
 }
 
 .product__price {
-    color: red;
+    color: var(--text-highlight);
 }
 
 .product__msrp {
@@ -196,4 +328,12 @@ body {
 .product__button:active {
     transform: translateY(0px);
     box-shadow: 0 .1rem .8rem grey;
+}
+
+/* Footer */
+.footer {
+    height: 8rem;
+    margin-top: 1rem;
+    background-color: var(--main-bg-color);
+    color: var(--text-light);
 }
