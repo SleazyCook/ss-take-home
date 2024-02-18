@@ -32,7 +32,7 @@ function ProductCard({products, cartTotal, setCartTotal}) {
 
                             {/* Name */}
                             <div className='product__name'>
-                                {truncateString(product.name, 40)}</div>
+                                {truncateString(product.name, 39)}</div>
 
                             {/* Divider Line */}
                             <span className='product__divider'></span>
