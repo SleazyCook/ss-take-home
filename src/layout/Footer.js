@@ -5,25 +5,25 @@ function Footer() {
             id: 1,
             label: 'Portfolio',
             href: 'https://drewford.dev',
-            img: 'https://i.imgur.com/Kbzj1SL.png'
+            img: 'https://i.imgur.com/cQWeqSM.png'
         },
         {
             id: 2,
             label: 'LinkedIn',
-            href: '',
+            href: 'https://www.linkedin.com/in/developedbydrewford/',
             img: 'https://i.imgur.com/7dukWV3.png'
         },
         {
             id: 3,
             label: 'GitHub',
-            href: '',
+            href: 'https://github.com/SleazyCook',
             img: 'https://i.imgur.com/GjYUQiB.png'
         },
         {
             id: 4,
             label: 'Code Wars',
-            href: '',
-            img: 'https://i.imgur.com/GsN6Ucg.png'
+            href: 'https://www.codewars.com/users/sleazycook',
+            img: 'https://i.imgur.com/OLZoiwJ.png'
         }
     ]
 
