@@ -21,6 +21,8 @@ function Products() {
                 const result = await fetchProductData(pageNumber, searchTerm)
                 setProducts(result.results)
                 setLastPage(result.pagination.totalPages)
+
+                console.log(result)
             }
         )()
     }, [pageNumber] )
@@ -35,11 +37,14 @@ function Products() {
                 setProducts={setProducts}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
+                setPageNumber={setPageNumber}
+                setLastPage={setLastPage}
                 cartTotal={cartTotal} />
 
             <Pagination 
                 pageNumber={pageNumber}
-                setPageNumber={setPageNumber}/>
+                setPageNumber={setPageNumber}
+                lastPage={lastPage}/>
 
             <ProductCard
                 products={products}

@@ -1,9 +1,13 @@
+import { useState, useEffect } from 'react'
+
 import {fetchProductData} from '../api/products'
 
 import  { BiSearch } from 'react-icons/bi'
 import { FaCartShopping } from 'react-icons/fa6';
 
-function Toolbar({setProducts, searchTerm, setSearchTerm, cartTotal}) {
+function Toolbar({setProducts, searchTerm, setSearchTerm, setPageNumber, setLastPage, cartTotal}) {
+
+    const [buttonClick, setButtonClicked] = useState(0)
 
     const categories = [
         {
@@ -12,7 +16,7 @@ function Toolbar({setProducts, searchTerm, setSearchTerm, cartTotal}) {
         },
         {
             id: 2,
-            name: 'bottoms'
+            name: 'pants'
         },
         {
             id: 3,
@@ -24,9 +28,24 @@ function Toolbar({setProducts, searchTerm, setSearchTerm, cartTotal}) {
         }
     ]
 
+    useEffect(()=> {
+
+        (
+            async () => {
+                const result = await fetchProductData(1, searchTerm)
+                setPageNumber(1)
+                setProducts(result.results)
+                setLastPage(result.pagination.totalPages)
+            }
+        )()
+
+    }, [buttonClick])
+
+
+
     function handleCategory(event) {
-        setSearchTerm(event.target.value)
-        console.log('button clicked', event.target.value)
+        setButtonClicked(buttonClick+1)
+        setSearchTerm(event.target.innerText)
     }
 
     function handleChange(event) {
@@ -37,6 +56,7 @@ function Toolbar({setProducts, searchTerm, setSearchTerm, cartTotal}) {
         event.preventDefault()
         const result = await fetchProductData(1, searchTerm)
         setProducts(result.results)
+        setLastPage(result.pagination.totalPages)
     }
 
     return (
@@ -46,7 +66,7 @@ function Toolbar({setProducts, searchTerm, setSearchTerm, cartTotal}) {
                 {categories.map((cat) => {
                     return (
                         <div onClick={handleCategory} key={cat.id} value={cat.name} className='toolbar__button'>
-                            <span>{cat.name}</span>
+                            {cat.name}
                         </div>
                     )
                 })}
