@@ -6,7 +6,8 @@ function NoResults({searchQuery}) {
         <div className='no-results'>
             <div className='no-results__text'>Sorry! We couldn't find any results for&nbsp;
                 <span className='no-results__search-term'>"{searchQuery}"</span>
-                &nbsp;at this time. Please check again in the near future as new products are routinely added to our site. </div>
+                &nbsp;at this time. Please check again in the near future as new products are routinely added to our site. 
+                </div>
 
             <img className='no-results__img' src='https://i.imgur.com/AS1JdTG.png' alt='Cute and Otterly' />
         </div>
