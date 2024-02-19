@@ -1,10 +1,13 @@
-function NoResults() {
+function NoResults({searchQuery}) {
 
     // console.log('hello: ', termSearched)
 
     return (
         <div className='no-results'>
-            <div className='no-results__text'>We don't have results for your search at this time. Please check again in the near-future. </div>
+            <div className='no-results__text'>Sorry, we couldn't any results for&nbsp;
+                 
+                <span className='no-results__search-term'>"{searchQuery}"</span>
+                &nbsp;at this time. Please check again in the near future as new products are routinely added to our site. </div>
 
             <img className='no-results__img' src='https://i.imgur.com/AS1JdTG.png' alt='Cute and Otterly' />
         </div>

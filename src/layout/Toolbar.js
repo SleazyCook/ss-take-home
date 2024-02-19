@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react'
-
-import {fetchProductData} from '../api/products'
-
 import  { BiSearch } from 'react-icons/bi'
 import { FaCartShopping } from 'react-icons/fa6';
 
-function Toolbar({setProducts, searchTerm, setSearchTerm, setPageNumber, setLastPage, cartTotal}) {
-
-    const [buttonClick, setButtonClicked] = useState(0)
+function Toolbar({
+    searchTerm, setSearchTerm, 
+    setPageNumber, 
+    cartTotal,
+    setSearchQuery}) {
 
     const categories = [
         {
@@ -28,24 +26,9 @@ function Toolbar({setProducts, searchTerm, setSearchTerm, setPageNumber, setLast
         }
     ]
 
-    useEffect(()=> {
-
-        (
-            async () => {
-                const result = await fetchProductData(1, searchTerm)
-                setPageNumber(1)
-                setProducts(result.results)
-                setLastPage(result.pagination.totalPages)
-            }
-        )()
-
-    }, [buttonClick])
-
-
-
     function handleCategory(event) {
-        setButtonClicked(buttonClick+1)
-        setSearchTerm(event.target.innerText)
+        setSearchQuery(event.target.innerText)
+        setPageNumber(1)
     }
 
     function handleChange(event) {
@@ -54,9 +37,8 @@ function Toolbar({setProducts, searchTerm, setSearchTerm, setPageNumber, setLast
 
     async function handleSubmit(event) {
         event.preventDefault()
-        const result = await fetchProductData(1, searchTerm)
-        setProducts(result.results)
-        setLastPage(result.pagination.totalPages)
+        setPageNumber(1)
+        setSearchQuery(searchTerm)
     }
 
     return (

@@ -12,6 +12,7 @@ import Footer from '../layout/Footer'
 function Shop() {
     const [products, setProducts] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
+    const [searchQuery, setSearchQuery] = useState("")
     const [pageNumber, setPageNumber] = useState(1)
     const [lastPage, setLastPage] = useState(1)
     const [cartTotal, setCartTotal] = useState(0)
@@ -19,25 +20,24 @@ function Shop() {
     useEffect(() => {
         (
             async () => {
-                const result = await fetchProductData(pageNumber, searchTerm)
+                const result = await fetchProductData(pageNumber, searchQuery)
                 setProducts(result.results)
                 setLastPage(result.pagination.totalPages)
             }
         )()
-    }, [pageNumber] )
+    }, [pageNumber, searchQuery] )
 
     return (
         <div>
             <Header 
                 setPageNumber={setPageNumber}
-                setSearchTerm={setSearchTerm}/>
+                setSearchQuery={setSearchQuery}/>
 
             <Toolbar
-                setProducts={setProducts}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
+                setSearchQuery={setSearchQuery}
                 setPageNumber={setPageNumber}
-                setLastPage={setLastPage}
                 cartTotal={cartTotal} />
 
             {products.length ?
@@ -58,7 +58,8 @@ function Shop() {
                     lastPage={lastPage}/>
                 </>
                 :
-                <NoResults />
+                <NoResults 
+                    searchQuery={searchQuery}/>
             }   
 
             <Footer />
