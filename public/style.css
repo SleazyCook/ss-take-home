@@ -353,19 +353,19 @@ body {
     right: 0;
     height: 1.25rem;
     width: 1.25rem;
-    padding: .5rem;
+    padding: .2rem;
     background-color: var(--color-grey--light);
     color: var(--text-light);
     border-radius: 50%;
     text-align: center;
 }
 
-/*  */
+/* Cart counter resize on smaller screens */
 @media screen and (max-width: 1024px) {
     .cart span {
         height: 1.75rem;
         width: 1.75rem; 
-
+        padding: .5rem;
     }
 }
 
