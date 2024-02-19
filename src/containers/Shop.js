@@ -17,6 +17,13 @@ function Shop() {
     const [lastPage, setLastPage] = useState(1)
     const [cartTotal, setCartTotal] = useState(0)
 
+    function clearInput() {
+        if (document.getElementsByClassName('search__input').search.value) {
+            let inputText = document.getElementsByClassName('search__input')
+            inputText.search.value = ""
+        }
+    }
+
     useEffect(() => {
         (
             async () => {
@@ -31,14 +38,16 @@ function Shop() {
         <div>
             <Header 
                 setPageNumber={setPageNumber}
-                setSearchQuery={setSearchQuery}/>
+                setSearchQuery={setSearchQuery}
+                clearInput={clearInput}/>
 
             <Toolbar
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
                 setSearchQuery={setSearchQuery}
                 setPageNumber={setPageNumber}
-                cartTotal={cartTotal} />
+                cartTotal={cartTotal} 
+                clearInput={clearInput}/>
 
             {products.length ?
                 <>

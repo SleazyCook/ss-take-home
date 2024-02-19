@@ -1,8 +1,9 @@
-function Header({setPageNumber, setSearchQuery}) {
+function Header({setPageNumber, setSearchQuery, clearInput}) {
 
     function handleReset() {
         setSearchQuery("")
         setPageNumber(1)
+        clearInput()
     }
 
     return(

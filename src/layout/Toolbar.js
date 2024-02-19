@@ -5,7 +5,8 @@ function Toolbar({
     searchTerm, setSearchTerm, 
     setPageNumber, 
     cartTotal,
-    setSearchQuery}) {
+    setSearchQuery,
+    clearInput}) {
 
     const categories = [
         {
@@ -29,6 +30,7 @@ function Toolbar({
     function handleCategory(event) {
         setSearchQuery(event.target.innerText)
         setPageNumber(1)
+        clearInput()
     }
 
     function handleChange(event) {

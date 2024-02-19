@@ -177,6 +177,13 @@ body {
     text-shadow: 1px 1px 2px var(--text-light);
 }
 
+/* Smaller Header Font on Mobile */
+@media screen and (max-width: 768px) {
+    .header__name {
+        font-size: 1.5rem;
+    }
+}
+
 .header__links,
 .header__links--about {
     color: var(--text-dark); 
@@ -189,6 +196,13 @@ body {
 .header__links:hover,
 .header__links--about:hover {
     color: var(--color-grey--light);
+}
+
+/* Media Query - Remove Links on Mobile */
+@media screen and (max-width: 768px) {
+    .header__links {
+        display: none;
+    }
 }
 
 /* Toolbar */
@@ -237,7 +251,6 @@ body {
     transform: translateX(100%) rotate(45deg);
 }
 
-
 .toolbar__divider {
     display: inline-block;
     height: 35px;
@@ -245,6 +258,14 @@ body {
     background-color: var(--text-light);
     margin: 0 1rem;
     margin-right: 1.5rem;
+}
+
+/* Media Query - Remove Buttons on Mobile */
+@media screen and (max-width: 768px) {
+    .toolbar__button,
+    .toolbar__divider {
+        display: none;
+    }
 }
 
 .search{
@@ -265,6 +286,10 @@ body {
     width: 90%;
     transition: all .2s;
     margin-right: -2rem;
+}
+
+.search__input:focus-within {
+    background-color: var(--color-grey--dark);
 }
 
 .search__input::placeholder {
@@ -327,12 +352,21 @@ body {
     top: 0;
     right: 0;
     height: 1.25rem;
-    width: 1.25rem;a
+    width: 1.25rem;
     padding: .5rem;
     background-color: var(--color-grey--light);
     color: var(--text-light);
     border-radius: 50%;
     text-align: center;
+}
+
+/*  */
+@media screen and (max-width: 1024px) {
+    .cart span {
+        height: 1.75rem;
+        width: 1.75rem; 
+
+    }
 }
 
 /* Pagination Component */
@@ -343,6 +377,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Media Query - Padding on smaller screens */
+@media screen and (max-width: 768px) {
+    .pagination {
+        padding: 0 10px;
+    }
 }
 
 .page-button {
@@ -371,7 +412,6 @@ body {
     display: inline-block;
     width: 5rem;
 }
-
 
 /* Product Card */
 .products__container {
@@ -528,6 +568,19 @@ body {
     color: var(--text-light);
     text-align: center;
     padding: 1rem 8rem;
+}
+
+/* Media Query - Grow on smaller screens */
+@media screen and (max-width: 768px) {
+    .footer {
+        height: 15rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer {
+        height: 22rem;
+    }
 }
 
 .author {
