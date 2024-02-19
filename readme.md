@@ -5,7 +5,7 @@ Built by [ANDREW COOK](https://drewford.dev) for a front end challenge from [SEA
 
 ## Deployment
 
-[Otterly Unique](https://shop-otterly.netlify.app) deployed on Netlify
+[Otterly Unique](https://shop-otterly.netlify.app) deployed on Netlify.
 
 ## Requirements
 

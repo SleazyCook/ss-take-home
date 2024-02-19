@@ -264,7 +264,7 @@ body {
     min-width: 15rem;
     width: 90%;
     transition: all .2s;
-    margin-right: -3.25rem;
+    margin-right: -2rem;
 }
 
 .search__input::placeholder {
@@ -280,7 +280,6 @@ body {
     outline: none;
     width: 100%;
     min-width: 17rem;
-    backgroud-color: red;
 }
 
 .search__button {
